@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
       <div className="tossface Home-test">🚀 home</div>
-      <div className="tossface Home-test">🍗 chicken</div>
+      <div className="tossface Home-test">✅ test</div>
     </>
   );
 };
