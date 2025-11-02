@@ -1,0 +1,87 @@
+.ai-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  background-color: var(--bg-color);
+  min-height: calc(100vh - 80px); /* 헤더 높이 제외 */
+}
+
+.ai-content {
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+}
+
+.ai-header {
+  margin-bottom: 40px;
+}
+
+.ai-badge {
+  display: inline-block;
+  background-color: #f2e6ff;
+  color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.ai-header h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.ai-header p {
+  font-size: 18px;
+  color: var(--subtitle-color);
+}
+
+.ai-detector {
+  background-color: var(--bg-color);
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.ai-detector textarea {
+  width: 90%;
+  height: 160px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.ai-detector textarea::placeholder {
+  color: #aaa;
+}
+
+.btn-analyze {
+  width: 100%;
+  padding: 16px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-analyze:hover {
+  background-color: var(--primary-color);
+}
+
+.ai-footer-text {
+  font-size: 14px;
+  color: var(--subtitle-color);
+}
