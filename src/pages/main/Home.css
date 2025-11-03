@@ -1,4 +1,168 @@
-.Home-test {
-  margin: 12px;
-  font-size: 60px;
+.home-container {
+  color: var(--text-color);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 120px 20px;
+  background-color: var(--bg-color);
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--subtitle-color);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.btn-secondary {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--card-bg);
+}
+
+/* Features Section */
+.features-section {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: var(--card-bg);
+}
+
+.features-section h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--subtitle-color);
+  margin-bottom: 60px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: var(--bg-color);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: var(--subtitle-color);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.feature-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feature-link:hover {
+  color: black;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 80px 20px;
+  background-color: var(--bg-color);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.stat-item p {
+  font-size: 16px;
+  color: var(--subtitle-color);
+}
+
+/* Final CTA Section */
+.final-cta-section {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: var(--card-bg);
+}
+
+.final-cta-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.final-cta-section p {
+  font-size: 18px;
+  color: var(--subtitle-color);
+  margin-bottom: 30px;
 }
