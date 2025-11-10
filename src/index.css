@@ -44,4 +44,5 @@ a {
 body {
   margin: 0 auto;
   min-width: 320px;
+  overflow-x: hidden;
 }
