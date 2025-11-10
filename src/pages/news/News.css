@@ -226,10 +226,7 @@
   }
 
   .news-list-img-wrapper {
-    width: 100%;
-    height: 150px;
-    margin-right: 0;
-    margin-bottom: 15px;
+    display: none;
   }
 
   .news-list-info h3 {
