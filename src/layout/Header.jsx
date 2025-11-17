@@ -28,7 +28,7 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
-          S.Camp
+          <img src="/scamp.svg" alt="S.Camp" />
         </Link>
         <nav className={isMobile ? 'mobile-nav' : 'desktop-nav'}>
           {isMobile ? (

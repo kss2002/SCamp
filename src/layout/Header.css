@@ -19,10 +19,14 @@
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: var(--primary-color);
+}
+
+.logo img {
+  height: 24px;
+  width: auto;
 }
 
 .desktop-nav {
@@ -112,8 +116,8 @@
     height: 70px;
   }
 
-  .logo {
-    font-size: 20px;
+  .logo img {
+    height: 20px;
   }
 
   .desktop-nav {
