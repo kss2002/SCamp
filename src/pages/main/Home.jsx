@@ -40,7 +40,7 @@ export default function Home() {
       <FadeInSection delay={0} duration={800}>
         <section className="hero-section">
           <h1>
-            사기를 미리 캐치해서,
+            사기를 <span>미리</span> 캐치해서,
             <br />
             모두가 덜 당하게 만들어요
           </h1>
@@ -92,7 +92,9 @@ export default function Home() {
 
       <FadeInSection delay={600} duration={800}>
         <section className="final-cta-section tossface">
-          <h2>지금 바로 의심스러운 링크를 확인해보세요 🚀</h2>
+          <h2>
+            지금 바로 의심스러운 링크를 <br /> 확인해보세요 🚀
+          </h2>
           <p>무료로 회원가입도 필요 없어요.</p>
           <Link to="/ai" className="btn btn-primary hvr-grow">
             AI 탐지 시작하기

@@ -9,7 +9,7 @@ export default function Ai() {
           <h1 className="tossface">
             의심스러운 링크나 메시지를
             <br />
-            즉시 검증해드려요 👻
+            즉시 <span className="highlight">검증</span>해드려요 👻
           </h1>
           <p>받은 URL이나 메시지를 입력하면 AI가 사기 가능성을 분석해드려요</p>
         </div>

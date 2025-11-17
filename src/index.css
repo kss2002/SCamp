@@ -44,4 +44,11 @@ a {
 body {
   margin: 0 auto;
   min-width: 320px;
+  overflow-x: hidden;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+button {
+  border: none;
 }

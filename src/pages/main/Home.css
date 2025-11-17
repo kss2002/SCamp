@@ -16,6 +16,10 @@
   margin-bottom: 20px;
 }
 
+.hero-section span {
+  color: var(--primary-color);
+}
+
 .subtitle {
   font-size: 18px;
   color: var(--subtitle-color);
@@ -165,4 +169,50 @@
   font-size: 18px;
   color: var(--subtitle-color);
   margin-bottom: 30px;
+}
+
+@media (max-width: 500px) {
+  .hero-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-section h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    max-width: 300px;
+  }
+
+  .features-section h2 {
+    font-size: 28px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-section {
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    flex: 1 1 45%;
+    min-width: 120px;
+  }
+
+  .final-cta-section h2 {
+    font-size: 20px;
+  }
 }

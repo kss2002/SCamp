@@ -38,3 +38,19 @@
 .btn-home:hover {
   opacity: 0.8;
 }
+
+@media (max-width: 500px) {
+  .not-found-title {
+    font-size: 60px;
+    margin-bottom: 6px;
+  }
+
+  .not-found-content h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .not-found-content p {
+    font-size: 14px;
+  }
+}

@@ -27,6 +27,10 @@
   margin-bottom: 15px;
 }
 
+.board-header span {
+  color: var(--primary-color);
+}
+
 .board-header p {
   font-size: 18px;
   color: var(--subtitle-color);
@@ -40,4 +44,83 @@
 
 .board-list {
   flex: 1;
+}
+
+/* Loading & Error States */
+.loading-wrapper,
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  gap: 20px;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  color: var(--primary-color);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-wrapper h2 {
+  font-size: 24px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.error-wrapper p {
+  color: var(--subtitle-color);
+  margin-bottom: 20px;
+}
+
+.board-empty-state {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px 20px;
+  color: var(--subtitle-color);
+}
+
+@media (max-width: 500px) {
+  .board-container {
+    padding: 30px 15px;
+  }
+
+  .board-header {
+    margin-bottom: 40px;
+  }
+
+  .board-badge {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .board-header h1 {
+    font-size: 28px;
+  }
+
+  .board-header p {
+    font-size: 16px;
+  }
+
+  .board-content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .board-empty-state {
+    margin: 50px;
+    text-align: center;
+    padding: 0px;
+  }
 }

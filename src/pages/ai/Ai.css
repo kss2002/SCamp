@@ -35,6 +35,10 @@
   margin-bottom: 15px;
 }
 
+.ai-header .highlight {
+  color: var(--primary-color);
+}
+
 .ai-header p {
   font-size: 18px;
   color: var(--subtitle-color);
