@@ -5,7 +5,7 @@ import apiClient from './apiClient';
  */
 const postApi = {
   /**
-   * 전체 게시글를 조회합니다.
+   * 전체 게시글을 조회합니다.
    * @returns {Promise<Array>} 게시글 목록
    */
   getPosts: async () => {
