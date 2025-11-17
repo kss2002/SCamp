@@ -29,7 +29,7 @@ export default function News() {
     return (
       <div className="news-container">
         <div className="loading-wrapper">
-          <Loader className="loading-spinner" size={48} />
+          <Loader className="loading-spinner" size={48} aria-label="뉴스 로딩 중" />
           <p>뉴스를 불러오는 중입니다..</p>
         </div>
       </div>
