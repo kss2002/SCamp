@@ -42,7 +42,7 @@ export default function Board() {
     return (
       <div className="board-container">
         <div className="loading-wrapper">
-          <Loader className="loading-spinner" size={48} />
+          <Loader className="loading-spinner" size={48} aria-label="게시글 로딩 중" />
           <p>게시글을 불러오는 중입니다..</p>
         </div>
       </div>
