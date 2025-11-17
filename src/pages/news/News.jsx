@@ -1,10 +1,54 @@
-import { newsData } from '../../data/newsData';
+import { useState, useEffect } from 'react';
+import { newsApi } from '../../api';
 import './News.css';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Loader } from 'lucide-react';
 
 export default function News() {
-  const hotNews = newsData.filter(item => item.isHot);
-  const normalNews = newsData.filter(item => !item.isHot);
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        setLoading(true);
+        const data = await newsApi.getNews();
+        setNews(data);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="news-container">
+        <div className="loading-wrapper">
+          <Loader className="loading-spinner" size={48} />
+          <p>뉴스를 불러오는 중입니다..</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="news-container">
+        <div className="error-wrapper">
+          <h2 className="tossface">😢 뉴스를 불러오는데 실패했습니다</h2>
+          <p>{error}</p>
+          <button onClick={() => window.location.reload()} className="btn btn-primary">
+            다시 시도
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="news-container">
@@ -19,45 +63,27 @@ export default function News() {
       </div>
 
       <div className="news-section">
-        <h2>긴급 뉴스</h2>
-        <div className="hot-news-grid">
-          {hotNews.map(item => (
-            <a href="#" key={item.id} className="hot-news-card">
-              <div className="hot-news-img-wrapper">
-                <img src={item.image} alt={item.title} />
-                <div className="hot-news-tag">HOT</div>
-              </div>
-              <div className="hot-news-info">
-                <h3>{item.title}</h3>
-                <p>
-                  {item.source} - {item.time}
-                </p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <div className="news-section">
         <h2>최신 뉴스</h2>
-        <div className="news-list">
-          {normalNews.map(item => (
-            <a href="#" key={item.id} className="news-list-item">
-              <div className="news-list-img-wrapper">
-                <img src={item.image} alt={item.title} />
-              </div>
-              <div className="news-list-info">
-                <h3>{item.title}</h3>
-                <p>
-                  {item.source} - {item.time}
-                </p>
-              </div>
-              <div className="news-list-arrow">
-                <ArrowRight />
-              </div>
-            </a>
-          ))}
-        </div>
+        {news.length === 0 ? (
+          <div className="news-empty-state">
+            <p>아직 등록된 뉴스가 없습니다.</p>
+          </div>
+        ) : (
+          <div className="news-list">
+            {news.map((item, index) => (
+              <a href={item.link} key={index} target="_blank" rel="noopener noreferrer" className="news-list-item">
+                <div className="news-list-info">
+                  <h3 dangerouslySetInnerHTML={{ __html: item.title }} />
+                  <p dangerouslySetInnerHTML={{ __html: item.description }} />
+                  <span className="news-date">{item.displayDate}</span>
+                </div>
+                <div className="news-list-arrow">
+                  <ArrowRight />
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
