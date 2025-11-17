@@ -171,6 +171,56 @@
   color: var(--primary-color);
 }
 
+.news-date {
+  display: block;
+  font-size: 13px;
+  color: var(--subtitle-color);
+  margin-top: 8px;
+}
+
+/* Loading & Error States */
+.loading-wrapper,
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  gap: 20px;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  color: var(--primary-color);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-wrapper h2 {
+  font-size: 24px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.error-wrapper p {
+  color: var(--subtitle-color);
+  margin-bottom: 20px;
+}
+
+.news-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--subtitle-color);
+}
+
 @media (max-width: 500px) {
   .news-container {
     padding: 30px 15px;
