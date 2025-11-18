@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { newsApi } from '../../api';
 import './News.css';
-import { ArrowRight, Loader } from 'lucide-react';
+import { Loader } from 'lucide-react';
+import NewsItem from '../../components/news/NewsItem';
 
 export default function News() {
   const [news, setNews] = useState([]);
@@ -71,16 +72,7 @@ export default function News() {
         ) : (
           <div className="news-list">
             {news.map((item, index) => (
-              <a href={item.link} key={index} target="_blank" rel="noopener noreferrer" className="news-list-item">
-                <div className="news-list-info">
-                  <h3 dangerouslySetInnerHTML={{ __html: item.title }} />
-                  <p dangerouslySetInnerHTML={{ __html: item.description }} />
-                  <span className="news-date">{item.displayDate}</span>
-                </div>
-                <div className="news-list-arrow">
-                  <ArrowRight />
-                </div>
-              </a>
+              <NewsItem key={index} item={item} />
             ))}
           </div>
         )}
