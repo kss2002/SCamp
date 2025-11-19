@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { postApi } from '../../api';
 import './Board.css';
 import BoardItem from '../../components/board/BoardItem';
 import Category from '../../components/board/Category';
+import BoardHeader from '../../components/board/BoardHeader';
 import { Loader } from 'lucide-react';
 
+// 카테고리 설정
 const categories = [
   { id: 'all', label: '전체', value: null },
   { id: 'notice', label: '공지사항', value: 'NOTICE' },
@@ -13,10 +16,11 @@ const categories = [
 ];
 
 export default function Board() {
+  const location = useLocation();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState(location.state?.selectedCategory || 'all');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -65,15 +69,7 @@ export default function Board() {
 
   return (
     <div className="board-container">
-      <div className="board-header">
-        <span className="board-badge">사기 사례 게시판</span>
-        <h1 className="tossface">
-          실제 사기 사례와
-          <br />
-          <span>예방 수칙</span>을 공유해요 👩‍💻
-        </h1>
-        <p>다른 사람들의 경험을 통해 새로운 사기 수법을 미리 알아둘 수 있어요</p>
-      </div>
+      <BoardHeader />
       <div className="board-content-wrapper">
         <Category categories={categories} selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
         <div className="board-list">
