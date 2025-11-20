@@ -12,6 +12,10 @@
   ],
   "tags": [
     {
+      "name": "URL Analyze API",
+      "description": "피싱 의심 URL의 위험도를 판별하는 API"
+    },
+    {
       "name": "News API",
       "description": "사기 뉴스 조회를 위한 API"
     },
@@ -23,7 +27,9 @@
   "paths": {
     "/api/analyze": {
       "post": {
-        "tags": ["analyze-controller"],
+        "tags": ["URL Analyze API"],
+        "summary": "URL 위험도 분석",
+        "description": "1차 판단 : 공공데이터 + 2차 판단 : Upstage AI\n\n- 1차) 공공데이터(피싱데이터 URL)에 존재 : 100 반환\n- 2차) AI를 통해 URL 위험도를 (0,25,50,75,100) 중 하나로 판단합니다.\n- URL 형식이 아닐 시 -\u003E 응답코드 400 \"URL 형식에 맞게 입력해주세요.\" 반환\n",
         "operationId": "getScore",
         "requestBody": {
           "content": {
