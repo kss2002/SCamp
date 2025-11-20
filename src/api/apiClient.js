@@ -39,7 +39,14 @@ apiClient.interceptors.response.use(
     // 에러 메시지 표준화
     const errorMessage = error.response?.data?.message || error.message || '알 수 없는 오류가 발생했습니다.';
     console.error('API Error:', errorMessage);
-    return Promise.reject(new Error(errorMessage));
+    
+    // Error 객체에 status와 data 추가하여 프론트엔드에서 분기 처리 가능하도록
+    const customError = new Error(errorMessage);
+    customError.status = error.response?.status;
+    customError.data = error.response?.data;
+    customError.originalError = error;
+    
+    return Promise.reject(customError);
   }
 );
 
