@@ -11,11 +11,7 @@ const analyzeApi = {
    */
   analyze: async text => {
     try {
-      const response = await apiClient.post('/api/analyze', text, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await apiClient.post('/api/analyze', { text });
       return response;
     } catch (error) {
       console.error('AI 분석 실패:', error);

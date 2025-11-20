@@ -1,92 +1,47 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { analyzeApi, postApi } from '../../api';
+import { Ghost, FileText, ArrowRight } from 'lucide-react';
+import { postApi } from '../../api';
+import { useAiAnalysis } from '../../hooks/useAiAnalysis';
 import './Ai.css';
 
 export default function Ai() {
   const navigate = useNavigate();
-  const [inputText, setInputText] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null);
+  const { inputText, setInputText, loading, result, error, analyze } = useAiAnalysis();
   const [relatedPosts, setRelatedPosts] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // 입력 텍스트가 비어있으면 결과 초기화
+    // 입력 텍스트가 비어있으면 관련 게시글도 초기화
     if (!inputText.trim()) {
-      setResult(null);
       setRelatedPosts([]);
-      setError(null);
     }
   }, [inputText]);
 
-  useEffect(() => {
-    if (error) {
-      const timer = setTimeout(() => {
-        setError(null);
-      }, 5000); // 5초 후 사라짐
-
-      return () => clearTimeout(timer);
-    }
-  }, [error]);
-
   const handleAnalyze = async () => {
-    if (!inputText.trim()) {
-      setError('분석할 텍스트를 입력해주세요');
-      return;
-    }
+    // AI 분석 실행 (useAiAnalysis 훅에서 처리)
+    await analyze();
 
-    try {
-      setLoading(true);
-      setError(null);
-      setResult(null);
-      setRelatedPosts([]);
+    // 분석 성공 시 관련 게시글 조회
+    if (inputText.trim()) {
+      try {
+        const [noticePosts, preventionPosts, casePosts] = await Promise.all([
+          postApi.getPostsByCategory('NOTICE'),
+          postApi.getPostsByCategory('PREVENTION'),
+          postApi.getPostsByCategory('CASE'),
+        ]);
 
-      const [score, noticePosts, preventionPosts, casePosts] = await Promise.all([
-        analyzeApi.analyze(inputText),
-        postApi.getPostsByCategory('NOTICE'),
-        postApi.getPostsByCategory('PREVENTION'),
-        postApi.getPostsByCategory('CASE'),
-      ]);
+        // 각 카테고리에서 최신 1개씩 추출 (총 3개)
+        const relatedPostsList = [
+          noticePosts[0], // 공지사항 최신 1개
+          preventionPosts[0], // 예방수칙 최신 1개
+          casePosts[0], // 사례공유 최신 1개
+        ].filter(Boolean); // undefined 제거
 
-      const riskInfo = analyzeApi.getRiskLevel(score);
-
-      setResult({
-        score,
-        ...riskInfo,
-      });
-
-      // 각 카테고리에서 최신 1개씩 추출 (총 3개)
-      const relatedPostsList = [
-        noticePosts[0],      // 공지사항 최신 1개
-        preventionPosts[0],  // 예방수칙 최신 1개
-        casePosts[0],        // 사례공유 최신 1개
-      ].filter(Boolean);     // undefined 제거
-
-      setRelatedPosts(relatedPostsList);
-    } catch (err) {
-      let errorMessage = err.message || 'AI 분석 중 오류가 발생했습니다.';
-      
-      // HTTP status code 기반 에러 처리
-      if (err.status === 400) {
-        // 400 에러는 백엔드 메시지 그대로 사용 (예: "URL 형식에 맞게 입력해주세요.")
-        errorMessage = err.message;
-      } else if (err.status === 403) {
-        errorMessage = '접근 권한이 없습니다. 잠시 후 다시 시도해주세요.';
-      } else if (err.status === 500 || (err.status >= 500 && err.status < 600)) {
-        errorMessage = '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
-      } else if (errorMessage.includes('Network Error')) {
-        errorMessage = '네트워크 연결을 확인해주세요.';
-      } else if (errorMessage.includes('timeout')) {
-        errorMessage = '요청 시간이 초과되었습니다. 다시 시도해주세요.';
-      } else if (err.status && err.status >= 400) {
-        // 기타 4xx 에러는 백엔드 메시지 우선, 없으면 일반 메시지
-        errorMessage = err.message || 'AI 분석 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
+        setRelatedPosts(relatedPostsList);
+      } catch (err) {
+        // 관련 게시글 조회 실패는 무시 (분석 결과는 표시)
+        console.error('관련 게시글 조회 실패:', err);
       }
-      
-      setError(errorMessage);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -130,7 +85,7 @@ export default function Ai() {
             <p>
               <span className="tossface">
                 {error.includes('분석할 텍스트') ? '❌' : '⚠️'}
-              </span>{' '}
+              </span>
               {error}
             </p>
           </div>
@@ -149,14 +104,14 @@ export default function Ai() {
           </div>
         )}
 
-        {relatedPosts.length > 0 && (
+        {result && relatedPosts.length > 0 && (
           <div className="related-cases-section">
             <div className="related-header">
               <h3>
-                <span className="tossface">📝</span> 관련 사례
+                <FileText className="inline-icon" /> 관련 사례
               </h3>
               <button onClick={goToBoard} className="btn-goto-board">
-                게시판 →
+                게시판 <ArrowRight className="inline-icon" />
               </button>
             </div>
             <div className="related-list">

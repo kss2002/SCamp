@@ -39,6 +39,15 @@
   color: var(--primary-color);
 }
 
+/* lucide-react 아이콘 인라인 스타일 */
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  margin-left: 8px;
+}
+
 .ai-header p {
   font-size: 18px;
   color: var(--subtitle-color);
@@ -170,6 +179,9 @@
 }
 
 .related-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 20px;
   font-weight: bold;
   margin: 0;
