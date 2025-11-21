@@ -44,14 +44,14 @@ const analyzeApi = {
         emoji: '⚠️',
         level: 'MEDIUM',
         label: '주의가 필요한 링크',
-        color: '#FFC107',
+        color: '#FFAD29',
         description: '의심스러운 요소가 발견되었어요. 개인정보나 금융정보 입력은 절대 하지 마세요.',
       },
       75: {
         emoji: '🚨',
         level: 'HIGH',
         label: '높은 위험도의 링크',
-        color: '#FF6F00',
+        color: '#EE3C3C',
         description: '사기 가능성이 높으니 주의하세요. 클릭하지 말고 즉시 삭제하는 것을 권장해요.',
       },
       100: {
