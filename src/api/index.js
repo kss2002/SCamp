@@ -1,5 +1,6 @@
 export { default as newsApi } from './newsApi';
 export { default as postApi } from './postApi';
+export { default as analyzeApi } from './analyzeApi';
 
 /**
  * API 모듈 통합 export
