@@ -59,7 +59,7 @@ export default function Ai() {
         <div className="ai-header">
           <span className="ai-badge">AI 사기 탐지기</span>
           <h1 className="tossface">
-            의심스러운 링크나 메시지를
+            의심스러운 링크를
             <br />
             즉시 <span className="highlight">검증</span>해드려요 👻
           </h1>
