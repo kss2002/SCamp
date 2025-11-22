@@ -8,7 +8,7 @@ export default function Home() {
     {
       icon: '🔍',
       title: 'AI 사기 탐지기',
-      desc: '의심스러운 URL이나 메시지를 입력하면 AI가 실시간으로 위험도를 분석해드려요.',
+      desc: '의심스러운 URL을 입력하면 AI가 실시간으로 위험도를 분석해드려요.',
       to: '/ai',
       cta: '바로 사용하기',
     },
@@ -47,7 +47,7 @@ export default function Home() {
           <p className="subtitle">
             스캠프는 AI 분석과 실시간 정보 공유로 금융 사기로부터 여러분을 보호하는 안전 기지에요.
             <br />
-            의심스러운 링크나 메시지를 즉시 검증하고, 최신 사기 수법을 빠르게 파악할 수 있어요.
+            의심스러운 링크를 즉시 검증하고, 최신 사기 수법을 빠르게 파악할 수 있어요.
           </p>
           <div className="cta-buttons">
             <Link to="/ai" className="btn btn-primary hvr-grow">

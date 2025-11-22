@@ -71,7 +71,7 @@ export default function Ai() {
             value={inputText}
             onChange={e => setInputText(e.target.value)}
             placeholder={
-              '피싱이 의심되는 URL을 입력해주세요.\n예시: https://www.google.com\nhttp://..."와 같은 메시지를 입력하세요'
+              '피싱이 의심되는 URL을 입력해주세요.\n예시: https://www.google.com\nhttp://..."와 같은 주소를 입력하세요'
             }
             disabled={loading}
           ></textarea>
