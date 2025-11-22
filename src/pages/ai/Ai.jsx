@@ -63,7 +63,7 @@ export default function Ai() {
             <br />
             즉시 <span className="highlight">검증</span>해드려요 👻
           </h1>
-          <p>받은 URL이나 메시지를 입력하면 AI가 사기 가능성을 분석해드려요</p>
+          <p>받은 URL을 입력하면 AI가 사기 가능성을 분석해드려요</p>
         </div>
 
         <div className="ai-detector">
