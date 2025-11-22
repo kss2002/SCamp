@@ -62,8 +62,6 @@ S.Camp는 **AI 기술**을 활용하여 피싱, 스미싱, 보이스피싱 등 �
 
 - **Yarn** - 패키지 매니저
 
----
-
 ## 🚀 시작하기
 
 ### 필수 요구사항
@@ -155,8 +153,6 @@ src/
 └── index.css          # 글로벌 스타일
 ```
 
----
-
 ## 📡 API 문서
 
 ### Base URL
@@ -224,13 +220,9 @@ Response:
 
 자세한 API 문서는 [Swagger](https://api.inwoo.store/swagger-ui/index.html)에서 확인하세요.
 
----
-
 ## 🌐 배포
 
 - Vercel 배포
-
----
 
 ## 🎨 코드 스타일 가이드
 
@@ -246,8 +238,6 @@ Response:
 - **상태 관리**: useState, useEffect 등 React Hooks 활용
 - **Props**: 구조 분해 할당 사용
 - **파일명**: PascalCase (예: `BoardItem.jsx`)
-
----
 
 ## 🤝 기여하기
 
@@ -266,26 +256,18 @@ Response:
 - CSS는 컴포넌트별로 분리하여 작성
 - API 함수는 `/src/api` 폴더에 도메인별로 분리
 
----
-
 ## 📄 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
----
-
 ## 👥 팀
 
 - **Frontend Developer**: [@kss2002](https://github.com/kss2002)
-- **Backend Developer**: [@tlsgud0](https://github.com/tlsgud0)
-
----
+- **Frontend Developer**: [@tlsgud0](https://github.com/tlsgud0)
 
 ## 📞 문의
 
 프로젝트에 대한 질문이나 제안이 있으시면 [Issues](https://github.com/kss2002/ganzi/issues)를 통해 알려주세요.
-
----
 
 <div align="center">
   
