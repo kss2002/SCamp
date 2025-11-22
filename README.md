@@ -7,8 +7,6 @@
 [![Vite](https://img.shields.io/badge/Vite-7.1.14-646cff?logo=vite)](https://vitejs.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
----
-
 ## 🎯 프로젝트 소개
 
 S.Camp는 **AI 기술**을 활용하여 피싱, 스미싱, 보이스피싱 등 다양한 사기 유형을 실시간으로 탐지하고, 사용자 커뮤니티를 통해 최신 사기 수법과 예방 정보를 공유하는 플랫폼입니다.
@@ -19,8 +17,6 @@ S.Camp는 **AI 기술**을 활용하여 피싱, 스미싱, 보이스피싱 등 �
 - 📰 **최신 뉴스**: 금융 사기 관련 최신 뉴스를 자동으로 수집
 - 💬 **커뮤니티**: 실제 사기 사례와 예방 수칙을 공유
 - 📱 **모바일 최적화**: 언제 어디서나 편리하게 사용
-
----
 
 ## ✨ 주요 기능
 
@@ -41,8 +37,6 @@ S.Camp는 **AI 기술**을 활용하여 피싱, 스미싱, 보이스피싱 등 �
 - 카테고리별 필터링 (공지사항/예방수칙/사례공유)
 - 게시글 상세 조회 및 공유 기능
 - 조회수 추적 및 최신순 정렬
-
----
 
 ## 🛠 기술 스택
 
@@ -113,8 +107,6 @@ yarn build
 ```bash
 yarn preview
 ```
-
----
 
 ## 📁 프로젝트 구조
 
@@ -273,6 +265,6 @@ Response:
   
 **Made with ❤️ by S.Camp Team**
 
-[🏠 Homepage](s-camp.vercel.app)
+https://s-camp.vercel.app
 
 </div>
