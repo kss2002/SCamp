@@ -131,16 +131,16 @@
   background-color: var(--bg-color);
   text-align: left;
 }
-
+/* margin-bottom 간격 */
 .result-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .result-icon {
-  font-size: 48px;
+  font-size: 35px;
   line-height: 1;
 }
 
@@ -154,12 +154,12 @@
   font-size: 16px;
   color: var(--text-color);
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .result-score {
   font-size: 14px;
-  color: var(--subtitle-color);
+  color: #666;
   font-weight: bold;
 }
 
@@ -238,9 +238,9 @@
 .related-item h4 {
   font-size: 16px;
   font-weight: bold;
-  margin: 32px 0 8px 0;
+  margin: 48px 0 8px 0;
   color: var(--text-color);
-  text-align: center;
+  text-align: left;
 }
 
 .related-item p {
@@ -248,6 +248,7 @@
   color: var(--subtitle-color);
   line-height: 1.5;
   margin: 0 0 12px 0;
+  text-align: left;
 }
 
 .related-meta {
@@ -266,7 +267,7 @@
   }
 
   .result-icon {
-    font-size: 36px;
+    font-size: 26px;
   }
 
   .result-label {
